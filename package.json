@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node-env-run -E .env.local index.js --exec nodemon | pino-colada"
+    "server": "node-env-run -E .env.local index.js --exec nodemon | pino-colada",
+    "client": "yarn run start --prefix client",
+    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"(cd client && yarn run start)\""
   },
   "keywords": [],
   "author": "",
@@ -17,10 +19,15 @@
     "express-pino-logger": "^5.0.0",
     "mongoose": "^5.9.20",
     "node-env-run": "^3.0.2",
-    "pino-colada": "^2.0.1"
+    "omp_wrap": "git://github.com/chaines/omp_wrap.git",
+    "pino-colada": "^2.0.1",
+    "redis": "^3.0.2"
   },
   "devDependencies": {
+    "benchmark": "^2.1.4",
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "jsphe": "git://github.com/chaines/jsPHE.git",
+    "nodemon": "^2.0.4",
+    "phe": "^0.6.0"
   }
 }
